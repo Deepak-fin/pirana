@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SACRED - Coming Soon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -22,7 +24,7 @@
             align-items: center;
             overflow-x: hidden;
         }
-        
+
         .container {
             display: flex;
             flex-direction: column;
@@ -32,9 +34,9 @@
             max-width: 800px;
             width: 100%;
         }
-        
+
         .coming-soon {
-            font-family: 'Permanent Marker', cursive;
+            font-family: 'Boldonse', system-ui;
             font-size: clamp(3rem, 8vw, 6rem);
             color: white;
             margin-bottom: 3rem;
@@ -42,34 +44,25 @@
             letter-spacing: 0.05em;
             animation: fadeInUp 1s ease-out;
         }
-        
+
         .logo-container {
             margin-bottom: 3rem;
             animation: fadeInUp 1s ease-out 0.3s both;
         }
-        
-        .logo-placeholder {
+
+        .logo-image {
             width: clamp(300px, 50vw, 500px);
             height: auto;
-            max-width: 100%;
-            background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            font-weight: 700;
-            color: white;
-            padding: 3rem 2rem;
             box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        .logo-placeholder:hover {
+
+        .logo-image:hover {
             transform: translateY(-5px);
             box-shadow: 0 25px 50px rgba(168, 85, 247, 0.4);
         }
-        
+
         .survey-button {
             background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
             color: white;
@@ -87,17 +80,17 @@
             overflow: hidden;
             animation: fadeInUp 1s ease-out 0.6s both;
         }
-        
+
         .survey-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(168, 85, 247, 0.5);
         }
-        
+
         .survey-button:active {
             transform: translateY(-1px) scale(0.98);
             box-shadow: 0 8px 25px rgba(168, 85, 247, 0.6);
         }
-        
+
         .survey-button::before {
             content: '';
             position: absolute;
@@ -108,65 +101,56 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s ease;
         }
-        
+
         .survey-button:hover::before {
             left: 100%;
         }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(40px);
             }
-            to {opacity: 1;
+            to {
+                opacity: 1;
                 transform: translateY(0);
             }
         }
-        
-        /* Responsive Design */
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
             }
-            
+
             .coming-soon {
                 margin-bottom: 2rem;
             }
-            
+
             .logo-container {
                 margin-bottom: 2rem;
             }
-            
-            .logo-placeholder {
-                padding: 2rem 1.5rem;
-            }
-            
+
             .survey-button {
                 padding: 16px 32px;
                 font-size: 1.1rem;
             }
         }
-        
+
         @media (max-width: 480px) {
             .coming-soon {
                 margin-bottom: 1.5rem;
             }
-            
+
             .logo-container {
                 margin-bottom: 1.5rem;
             }
-            
-            .logo-placeholder {
-                padding: 1.5rem 1rem;
-            }
-            
+
             .survey-button {
                 padding: 14px 28px;
                 font-size: 1rem;
             }
         }
-        
-        /* Background animation */
+
         body::before {
             content: '';
             position: fixed;
@@ -184,51 +168,43 @@
 <body>
     <div class="container">
         <h1 class="coming-soon">COMING SOON</h1>
-        
+
         <div class="logo-container">
-            <div class="logo-placeholder">
-                SACRED LOGO
-                <br>
-                <small style="font-size: 0.6em; opacity: 0.8;">Upload your logo here</small>
-            </div>
+            <img src="photo_6080087577349703579_y.jpg" alt="SACRED Logo" class="logo-image">
         </div>
-        
+
         <a href="#" class="survey-button" onclick="openSurvey(event)">
             Take Survey
         </a>
     </div>
-    
+
     <script>
         function openSurvey(event) {
             event.preventDefault();
-            // Replace this URL with your actual survey URL
             const surveyUrl = 'https://app.formbricks.com/s/cmczuyywzc0cqyh01kemu9vvd';
             window.open(surveyUrl, '_blank');
         }
-        
-        // Add some interactive elements
-        document.addEventListener('DOMContentLoaded', function() {
-            const logoPlaceholder = document.querySelector('.logo-placeholder');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const logo = document.querySelector('.logo-image');
             const button = document.querySelector('.survey-button');
-            
-            // Add click animation to logo placeholder
-            logoPlaceholder.addEventListener('click', function() {
+
+            logo.addEventListener('click', function () {
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     this.style.transform = 'scale(1)';
                 }, 150);
             });
-            
-            // Enhanced button press animation
-            button.addEventListener('mousedown', function() {
+
+            button.addEventListener('mousedown', function () {
                 this.style.transform = 'translateY(-1px) scale(0.98)';
             });
-            
-            button.addEventListener('mouseup', function() {
+
+            button.addEventListener('mouseup', function () {
                 this.style.transform = 'translateY(-3px) scale(1)';
             });
-            
-            button.addEventListener('mouseleave', function() {
+
+            button.addEventListener('mouseleave', function () {
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
