@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SACRED - Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .coming-soon {
+            font-family: 'Permanent Marker', cursive;
+            font-size: clamp(3rem, 8vw, 6rem);
+            color: white;
+            margin-bottom: 3rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.05em;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .logo-container {
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .logo-placeholder {
+            width: clamp(300px, 50vw, 500px);
+            height: auto;
+            max-width: 100%;
+            background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: white;
+            padding: 3rem 2rem;
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .logo-placeholder:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(168, 85, 247, 0.4);
+        }
+        
+        .survey-button {
+            background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .survey-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(168, 85, 247, 0.5);
+        }
+        
+        .survey-button:active {
+            transform: translateY(-1px) scale(0.98);
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.6);
+        }
+        
+        .survey-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .survey-button:hover::before {
+            left: 100%;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .coming-soon {
+                margin-bottom: 2rem;
+            }
+            
+            .logo-container {
+                margin-bottom: 2rem;
+            }
+            
+            .logo-placeholder {
+                padding: 2rem 1.5rem;
+            }
+            
+            .survey-button {
+                padding: 16px 32px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .coming-soon {
+                margin-bottom: 1.5rem;
+            }
+            
+            .logo-container {
+                margin-bottom: 1.5rem;
+            }
+            
+            .logo-placeholder {
+                padding: 1.5rem 1rem;
+            }
+            
+            .survey-button {
+                padding: 14px 28px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Background animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="coming-soon">COMING SOON</h1>
+        
+        <div class="logo-container">
+            <div class="logo-placeholder">
+                SACRED LOGO
+                <br>
+                <small style="font-size: 0.6em; opacity: 0.8;">Upload your logo here</small>
+            </div>
+        </div>
+        
+        <a href="#" class="survey-button" onclick="openSurvey(event)">
+            Take Survey
+        </a>
+    </div>
+    
+    <script>
+        function openSurvey(event) {
+            event.preventDefault();
+            // Replace this URL with your actual survey URL
+            const surveyUrl = 'https://app.formbricks.com/s/cmczuyywzc0cqyh01kemu9vvd';
+            window.open(surveyUrl, '_blank');
+        }
+        
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoPlaceholder = document.querySelector('.logo-placeholder');
+            const button = document.querySelector('.survey-button');
+            
+            // Add click animation to logo placeholder
+            logoPlaceholder.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+            
+            // Enhanced button press animation
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'translateY(-1px) scale(0.98)';
+            });
+            
+            button.addEventListener('mouseup', function() {
+                this.style.transform = 'translateY(-3px) scale(1)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
